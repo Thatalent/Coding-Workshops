@@ -1,0 +1,102 @@
+/* These are packages that I have imported.
+Each package contains code that has already been written for me to use!!!*/
+import java.io.*;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+ 
+ 
+/*This is my class or name of the block of code I'm writting. 
+This is important to remember because if I want to use this code in another
+file I would have to import it win a package like I did the other packages*/
+public class Main {
+ 
+/*This is called a priate static varible. 
+The private keyword means that it can only be used in this class.
+and the static key word means that there can only be one verison of this varible in this class*/
+ 
+	private static Scanner in;
+ 
+ 
+ 
+/*Oh look!!! there's a lot of code here!!! 
+Some of it mmight be complicated so if you have specfic questions just notify me!!!
+ 
+This first line of code is declaring the itself as the main method of this class. 
+That means that it is where all the code is going to be excuted!!!!*/
+	public static void main(String[] args) {
+ 
+		/*Here i'm assigning the private static varible in to a 
+		Scanner object that takes in user input!!!*/
+		in = new Scanner(System.in);
+ 
+		//This is the basic syntx for intializing an object.
+		Main test = new Main();
+ 
+ 
+		/*System.out.println is a method that prints a line of String
+		and will print next line of out on another line*/
+		System.out.println("Please input a number");
+ 
+		//This is the syntx for intializing an Intger varible with user input from our "in" object.
+		int number = in.nextInt();
+ 
+		//Using System.out.println the code will output a line of string that contains the user input.
+		System.out.println("Your input was: " + number);
+ 
+		//This time the code wants to take in String input!
+		System.out.println("Please input a word");
+		String text = in.next();
+		System.out.println("Your input was: " + text);
+ 
+		//Let's make an array!
+		System.out.println("Let's make an array!!!");
+ 
+		System.out.println("Please input a number for the length of the array!");
+		int arrayLength= in.nextInt();
+ 
+		String confirm = "Do you understand so far?";
+		//JOptionPane.showConfirmDialog(null, confirm);
+ 
+		String [] arrayText = new String [arrayLength];
+		int [] arrayNumbers = new int [arrayLength];
+ 
+		for(int i = 0; i<arrayLength; i++){
+			arrayNumbers[i]=i+1;
+			boolean understood= false;
+			do{
+			System.out.println("For index "+ i +", the array placement is: "+ arrayNumbers[i]);
+			//JOptionPane.showConfirmDialog(null, confirm);
+ 
+ 
+				System.out.println(confirm+" Enter 1 for Yes and 0 for No");
+				int con = in.nextInt();
+			if (con==1){
+				understood=true;
+			}
+			else if (con==0){
+				understood=false;
+				System.out.println("Sorry for the confusion! Please explain what needs clarification.");
+			}
+			else{
+				System.out.println("Invalid entry. Please re-enter confirmation");
+				continue;
+			}
+			}
+			while(!understood);
+			System.out.println("Please input a word");
+			arrayText[i]= in.next();
+		}
+		System.out.println("Your input for the array was:");
+		test.ArrayPrint(arrayText,arrayLength);
+		System.out.println("Congrats! You got through the first lesson!!!");
+	}
+ 
+	public void ArrayPrint(String [] arrayText, int arrayLength){
+		for(int i=0;i<arrayLength;i++){
+			System.out.print(arrayText[i]+ " ");
+		}
+		System.out.println("");
+		}
+ 
+}
+ 
